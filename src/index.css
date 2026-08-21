@@ -1,0 +1,445 @@
+@import "tailwindcss";
+@import "@fontsource/pixelify-sans/400.css";
+@import "@fontsource/pixelify-sans/500.css";
+@import "@fontsource/pixelify-sans/600.css";
+@import "@fontsource/press-start-2p/400.css";
+@import "@fontsource/nunito-sans/400.css";
+@import "@fontsource/nunito-sans/600.css";
+@import "@fontsource/nunito-sans/700.css";
+
+@theme {
+  --font-display: "Pixelify Sans", "Trebuchet MS", sans-serif;
+  --font-pixel: "Press Start 2P", "Courier New", monospace;
+  --font-body: "Nunito Sans", "Segoe UI", Tahoma, sans-serif;
+}
+
+:root,
+[data-theme="sunset"] {
+  --desktop-sky: #cdb4db;
+  --sunset-pink: #ffafcc;
+  --peach: #ffc8a2;
+  --warm-cream: #fff3c4;
+  --window-yellow: #ffe69a;
+  --soft-lavender: #b8a1d9;
+  --accent-orange: #f6a23c;
+  --dark-outline: #46364a;
+  --dark-text: #33283a;
+  --white-highlight: #fffdf3;
+  --success-green: #78b87a;
+  --error-red: #d95d5d;
+  --window-bg: #fff8e8;
+  --window-inset: #f3e4c4;
+  --titlebar-bg: #c9a0c4;
+  --titlebar-active: #e8a0c8;
+  --taskbar-bg: #efd0a4;
+  --taskbar-face: #ffe9c2;
+  --icon-label: #33283a;
+  --muted-text: #5c4c63;
+  --sun: #ffe69a;
+  --horizon: #ffafcc;
+  --city-far: #8a6a90;
+  --city-mid: #6a4e72;
+  --city: #4e3858;
+  --cloud: #fff7ee;
+  --star: #fffdf3;
+  --scrollbar-track: #ead9b0;
+  --buddy-body: #ffafcc;
+}
+
+[data-theme="night"] {
+  --desktop-sky: #241536;
+  --sunset-pink: #6d3d5c;
+  --peach: #c48b6a;
+  --warm-cream: #3d2e4f;
+  --window-yellow: #e6c56a;
+  --soft-lavender: #8d74b8;
+  --accent-orange: #e59a45;
+  --dark-outline: #140c1c;
+  --dark-text: #f4eaf7;
+  --white-highlight: #5c456f;
+  --success-green: #7cbe82;
+  --error-red: #e07070;
+  --window-bg: #3a2a4c;
+  --window-inset: #2c1e3c;
+  --titlebar-bg: #4e3a68;
+  --titlebar-active: #7b5a9a;
+  --taskbar-bg: #2a1b3a;
+  --taskbar-face: #3c2a50;
+  --icon-label: #f4eaf7;
+  --muted-text: #d4c4de;
+  --sun: #e6c56a;
+  --horizon: #4a2a58;
+  --city-far: #3a2848;
+  --city-mid: #24182e;
+  --city: #120816;
+  --cloud: #8d74b8;
+  --star: #ffe69a;
+  --scrollbar-track: #2c1e3c;
+  --buddy-body: #8d74b8;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+}
+
+html {
+  color-scheme: light;
+}
+
+[data-theme="night"] {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--dark-text);
+  background: var(--desktop-sky);
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+#root {
+  text-align: initial;
+  border: none;
+  max-width: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  color: var(--dark-text);
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+p {
+  margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+.pixel-art,
+.pixel-art * {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.pixel-border {
+  border: 3px solid var(--dark-outline);
+  box-shadow:
+    inset 1px 1px 0 var(--white-highlight),
+    4px 4px 0 0 var(--dark-outline);
+}
+
+.pixel-border-inset {
+  border: 2px solid var(--dark-outline);
+  box-shadow:
+    inset 2px 2px 0 var(--white-highlight),
+    inset -2px -2px 0 color-mix(in srgb, var(--dark-outline) 28%, transparent);
+}
+
+.retro-window {
+  background: var(--window-bg);
+  border: 3px solid var(--dark-outline);
+  box-shadow:
+    inset 1px 1px 0 var(--white-highlight),
+    4px 4px 0 0 var(--dark-outline);
+}
+
+.retro-window.is-active .retro-titlebar {
+  background: var(--titlebar-active);
+}
+
+.retro-window:not(.is-active) .retro-titlebar {
+  background: var(--titlebar-bg);
+  filter: saturate(0.75);
+}
+
+.retro-btn {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  line-height: 1.15;
+  color: var(--dark-text);
+  background: var(--window-yellow);
+  border: 2px solid var(--dark-outline);
+  border-radius: 2px;
+  padding: 0.45rem 0.8rem;
+  min-height: 44px;
+  box-shadow:
+    inset 1px 1px 0 var(--white-highlight),
+    inset -1px -1px 0 color-mix(in srgb, var(--dark-outline) 25%, transparent),
+    2px 2px 0 var(--dark-outline);
+  cursor: pointer;
+}
+
+.retro-btn:hover:not(:disabled) {
+  background: var(--peach);
+}
+
+.retro-btn:active:not(:disabled) {
+  transform: translate(1px, 1px);
+  box-shadow:
+    inset 1px 1px 0 color-mix(in srgb, var(--dark-outline) 25%, transparent),
+    inset -1px -1px 0 var(--white-highlight),
+    1px 1px 0 var(--dark-outline);
+}
+
+.retro-btn:disabled,
+.retro-btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: inset 1px 1px 0 var(--white-highlight);
+}
+
+.retro-btn-primary {
+  background: var(--sunset-pink);
+}
+
+.retro-btn-primary:hover:not(:disabled) {
+  background: var(--soft-lavender);
+}
+
+.retro-icon-btn {
+  width: 24px;
+  height: 22px;
+  min-height: 22px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  line-height: 1;
+  color: var(--dark-text);
+  background: var(--window-bg);
+  border: 2px solid var(--dark-outline);
+  border-radius: 1px;
+  box-shadow:
+    inset 1px 1px 0 var(--white-highlight),
+    inset -1px -1px 0 color-mix(in srgb, var(--dark-outline) 30%, transparent);
+  cursor: pointer;
+}
+
+.retro-icon-btn:hover {
+  background: var(--peach);
+}
+
+.retro-icon-btn:active {
+  box-shadow: inset 1px 1px 0 color-mix(in srgb, var(--dark-outline) 30%, transparent);
+}
+
+.retro-icon-btn.close-btn:hover {
+  background: var(--error-red);
+  color: var(--white-highlight);
+}
+
+@media (max-width: 767px) {
+  .retro-icon-btn {
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+    font-size: 12px;
+  }
+}
+
+.retro-input,
+.retro-textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--dark-text);
+  background: var(--white-highlight);
+  border: 2px solid var(--dark-outline);
+  border-radius: 1px;
+  padding: 0.55rem 0.7rem;
+  box-shadow: inset 2px 2px 0 color-mix(in srgb, var(--dark-outline) 18%, transparent);
+  min-height: 44px;
+}
+
+[data-theme="night"] .retro-input,
+[data-theme="night"] .retro-textarea {
+  background: var(--window-inset);
+}
+
+.retro-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.retro-input:focus,
+.retro-textarea:focus,
+.retro-btn:focus-visible,
+.retro-icon-btn:focus-visible,
+.desktop-icon:focus-visible,
+.taskbar-btn:focus-visible {
+  outline: 2px solid var(--accent-orange);
+  outline-offset: 2px;
+}
+
+.desktop-icon {
+  border: 2px solid transparent;
+  border-radius: 2px;
+}
+
+.desktop-icon:hover .icon-face {
+  background: color-mix(in srgb, var(--white-highlight) 80%, var(--sunset-pink));
+}
+
+.desktop-icon.is-selected {
+  background: color-mix(in srgb, var(--white-highlight) 42%, transparent);
+  border-color: color-mix(in srgb, var(--dark-outline) 55%, transparent);
+}
+
+.desktop-icon.is-open .icon-face {
+  box-shadow:
+    inset 1px 1px 0 color-mix(in srgb, var(--dark-outline) 20%, transparent),
+    2px 2px 0 var(--dark-outline);
+}
+
+@media (min-width: 768px) and (max-height: 840px) {
+  .desktop-icon-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 180px;
+  }
+}
+
+.field-error {
+  color: var(--error-red);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: -48px;
+  z-index: 10000;
+  padding: 0.5rem 0.75rem;
+  background: var(--window-yellow);
+  color: var(--dark-text);
+  border: 2px solid var(--dark-outline);
+}
+
+.skip-link:focus {
+  top: 8px;
+}
+
+button,
+a.retro-btn {
+  touch-action: manipulation;
+}
+
+.pixel-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-orange) var(--scrollbar-track);
+}
+
+.pixel-scrollbar::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+.pixel-scrollbar::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-left: 2px solid var(--dark-outline);
+}
+
+.pixel-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--accent-orange);
+  border: 2px solid var(--dark-outline);
+}
+
+.blink {
+  animation: blink 1s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.night-star {
+  opacity: 0.85;
+  animation: star-twinkle 2.8s steps(2, end) infinite;
+}
+
+.day-birds {
+  animation: bird-drift 12s steps(8, end) infinite alternate;
+}
+
+@keyframes bird-drift {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(10px, -4px);
+  }
+}
+
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes boot-fill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes window-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.boot-bar-fill {
+  animation: boot-fill 1.35s steps(18, end) forwards;
+}
+
+.window-enter {
+  animation: window-in 0.16s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blink,
+  .boot-bar-fill,
+  .window-enter,
+  .night-star,
+  .day-birds {
+    animation: none;
+  }
+
+  .boot-bar-fill {
+    width: 100%;
+  }
+}

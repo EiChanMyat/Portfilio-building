@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#CDB4DB" />
+    <title>[YOUR NAME] | Software Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of [YOUR NAME], a software engineer building reliable, accessible, and user-friendly applications."
+    />
+    <link rel="canonical" href="https://your-domain.example/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[YOUR NAME] | Software Engineer" />
+    <meta
+      property="og:description"
+      content="Portfolio of [YOUR NAME], a software engineer building reliable, accessible, and user-friendly applications."
+    />
+    <meta property="og:url" content="https://your-domain.example/" />
+    <meta property="og:image" content="/favicon.svg" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="[YOUR NAME] | Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Portfolio of [YOUR NAME], a software engineer building reliable, accessible, and user-friendly applications."
+    />
+    <meta name="author" content="[YOUR NAME]" />
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem('portfolio-os-theme');
+          if (theme === 'night' || theme === 'sunset') {
+            document.documentElement.setAttribute('data-theme', theme);
+          } else {
+            document.documentElement.setAttribute('data-theme', 'sunset');
+          }
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'sunset');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
