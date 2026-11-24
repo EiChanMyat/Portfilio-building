@@ -162,7 +162,7 @@ export function Desktop() {
           className={
             isMobile
               ? 'grid grid-cols-4 justify-items-center gap-x-1 gap-y-2 overflow-y-auto px-2 pb-2 pt-3'
-              : 'desktop-icon-nav absolute left-2 top-1 grid max-h-[calc(100dvh-4.2rem)] auto-rows-min grid-cols-1 justify-items-center gap-1 overflow-y-auto pb-2'
+              : 'desktop-icon-nav absolute left-2 top-1 flex max-h-[calc(100%-0.5rem)] flex-col flex-wrap content-start items-center gap-1'
           }
         >
           <DesktopIcon
