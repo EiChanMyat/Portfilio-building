@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { isUsableHttpUrl } from '../../data/portfolio';
+import { isUsableHttpUrl, snakeGame } from '../../data/portfolio';
 import { isEditorUnlocked } from '../../data/editorLock';
 import { useDesktop } from '../../hooks/useDesktop';
 import { usePortfolio } from '../../hooks/usePortfolio';
@@ -31,6 +31,7 @@ import {
   IconExperience,
   IconGithub,
   IconLinkedIn,
+  IconSnake,
   IconProjects,
   IconResume,
   IconSkills,
@@ -245,6 +246,13 @@ export function Desktop() {
               onOpen={() => openLink(socialLinks.linkedin, 'LinkedIn')}
             />
           )}
+          <DesktopIcon
+            label={snakeGame.name}
+            icon={<IconSnake size={28} />}
+            selected={selectedIcon === 'snake'}
+            onSelect={() => setSelectedIcon('snake')}
+            onOpen={() => openLink(snakeGame.url, snakeGame.name)}
+          />
         </nav>
 
         <RetroWindow id="welcome" icon={<IconHome size={16} />}>

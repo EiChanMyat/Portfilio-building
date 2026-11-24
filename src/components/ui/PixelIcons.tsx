@@ -278,3 +278,20 @@ export function IconMuted({ size = 18, label }: IconProps) {
   );
 }
 
+export function IconSnake({ size, label }: IconProps) {
+  return (
+    <PixelSvg size={size} label={label}>
+      <rect width="32" height="32" fill="#CDEAC0" />
+      <rect x="6" y="20" width="4" height="4" fill="#78B87A" stroke="#46364A" strokeWidth="1" />
+      <rect x="10" y="20" width="4" height="4" fill="#78B87A" stroke="#46364A" strokeWidth="1" />
+      <rect x="14" y="20" width="4" height="4" fill="#78B87A" stroke="#46364A" strokeWidth="1" />
+      <rect x="14" y="16" width="4" height="4" fill="#78B87A" stroke="#46364A" strokeWidth="1" />
+      <rect x="14" y="12" width="4" height="4" fill="#78B87A" stroke="#46364A" strokeWidth="1" />
+      <rect x="15" y="13" width="1" height="1" fill="#33283A" />
+      <rect x="17" y="13" width="1" height="1" fill="#33283A" />
+      <rect x="22" y="13" width="6" height="5" fill="#E5536B" stroke="#46364A" strokeWidth="1" />
+      <rect x="24" y="11" width="2" height="2" fill="#46364A" />
+      <rect x="26" y="9" width="3" height="2" fill="#78B87A" />
+    </PixelSvg>
+  );
+}

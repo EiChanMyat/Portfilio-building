@@ -169,6 +169,11 @@ export const socialLinks: SocialLinks = {
   linkedin: 'https://www.linkedin.com/in/ei-chan-myat-6126a844b',
 };
 
+export const snakeGame = {
+  name: 'Snake Game',
+  url: 'https://snake-game-lac.vercel.app/',
+};
+
 export const skillCategories: { id: SkillCategory; label: string }[] = [
   { id: 'languages', label: 'Programming Languages' },
   { id: 'frontend', label: 'Frontend' },
