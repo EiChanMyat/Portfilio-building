@@ -125,21 +125,24 @@ export const personalInfo: PersonalInfo = {
   osName: 'Ei Chan Myat OS',
   greeting: "Hello, I'm Ei Chan Myat",
   introduction:
-    "I'm a Software Engineering student at UIT in Yangon who enjoys turning ideas into useful applications. I build full-stack web apps and computer-vision projects, and I'm open to opportunities in Myanmar and Japan. I'm also studying Japanese.",
-  specialization: 'Full-stack web apps and computer-vision projects.',
+    
+    "I'm a Software Engineering student at the University of Information Technology in Yangon. I love turning ideas into useful applications, from full-stack web apps to computer-vision projects.",
+  specialization: 'Full-stack web apps and computer vision.',
   currentFocus:
-    'Studying for JLPT N3 while getting stronger in TypeScript, Next.js and Python.',
+    
+    'Sharpening my TypeScript, Next.js and Python skills, and studying Japanese for JLPT N3.',
   location: 'Yangon, Myanmar',
-  workPreference: 'Open to Myanmar and Japan',
-  availability: 'Open to internships in Myanmar and Japan',
+  workPreference: 'Open to internship opportunities',
+  availability: 'Open to internship opportunities',
   currentlyCoding: 'Currently coding',
   terminalStatus: '> Building apps and studying Japanese_',
   bio:
-    "I study Software Engineering at the University of Information Technology (UIT) in Yangon, and I have completed four of my five years. I started with Java and PHP, then moved on to full-stack web development and computer vision. I enjoy making ideas come true by building applications, like Toma, my habit-tracking web app. My interest in Japan began with Japanese movies and online content. What I admire most is how people there work: their discipline, punctuality, respect for others and teamwork. That is why I started studying Japanese. I passed JLPT N4 and I am now studying for N3. I am honest, hardworking and eager to learn, and I want to build a long-term engineering career, in Myanmar or in Japan. I am happy to work with teams in either country.",
+    
+    "I'm a fifth-year Software Engineering student at the University of Information Technology (UIT) in Yangon. I began with Java and PHP, then grew into full-stack web development and computer vision. What I enjoy most is making ideas real by building applications, like Toma, my gamified habit-tracking app. I'm also learning Japanese. I passed JLPT N4 and am preparing for N3, partly because I admire the discipline, punctuality and teamwork in Japanese work culture. You can count on me to be honest, hardworking and always eager to learn something new.",
   interests: [
     'Full-stack web development',
     'Computer vision',
-    'Japan and the Japanese language',
+    'Japanese language and culture',
     'Building useful applications',
   ],
   hobbies: ['Photography', 'Chess'],
@@ -149,21 +152,21 @@ export const personalInfo: PersonalInfo = {
     'Python and APIs',
   ],
   careerObjective:
-    'I want to start as a developer at a company in Myanmar or Japan, learn its systems and way of working, and take on more responsibility over time, such as designing and improving larger parts of a system. In the long term I want to be an engineer my team and customers can trust.',
+    
+    "I want to start as a developer, learn how a team builds and maintains real systems, and keep growing my skills. Over time, I'd like to take on more responsibility, such as designing and improving larger parts of a system, and become an engineer my team and customers can trust.",
   technologiesSummary: ['Java', 'PHP', 'JavaScript', 'React', 'MySQL', 'MongoDB', 'JLPT N4'],
   stats: {
     projectsCompleted: '5',
     technologiesUsed: '15+',
     yearsBuilding: '4',
-    availability: 'Open to internships in Myanmar and Japan',
+    availability: 'Open to internships',
   },
 };
 
 export const socialLinks: SocialLinks = {
   email: 'eichanmyat2020@gmail.com',
   github: 'https://github.com/EiChanMyat',
-  // Add your LinkedIn URL here when you have one. The LinkedIn icon stays hidden until then.
-  linkedin: '',
+  linkedin: 'https://www.linkedin.com/in/ei-chan-myat-6126a844b',
 };
 
 export const skillCategories: { id: SkillCategory; label: string }[] = [
@@ -484,7 +487,7 @@ export const contactFormEndpoint = '';
 export const siteMeta = {
   title: 'Ei Chan Myat | Software Engineering Student',
   description:
-    'Portfolio of Ei Chan Myat, a Software Engineering student in Yangon who builds full-stack web apps and computer-vision projects and is open to opportunities in Myanmar and Japan.',
+    'Portfolio of Ei Chan Myat, a Software Engineering student in Yangon who builds full-stack web apps and computer-vision projects.',
   canonical: 'https://portfilio-building.vercel.app/',
 };
 
