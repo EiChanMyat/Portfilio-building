@@ -506,8 +506,7 @@ function emptyProject(): Project {
 const PROJECT_TAGS: { id: Exclude<ProjectFilter, 'all'>; label: string }[] = [
   { id: 'web', label: 'Web' },
   { id: 'fullstack', label: 'Full stack' },
-  { id: 'networking', label: 'Networking' },
-  { id: 'security', label: 'Security' },
+  { id: 'vision', label: 'Computer vision' },
 ];
 
 function ProjectsEditor() {
@@ -635,6 +634,8 @@ function ProjectsEditor() {
               <option value="desktop">Desktop</option>
               <option value="dashboard">Dashboard</option>
               <option value="tasks">Tasks</option>
+              <option value="vision">Computer vision</option>
+              <option value="delivery">Delivery</option>
               <option value="network">Network</option>
             </select>
           </label>

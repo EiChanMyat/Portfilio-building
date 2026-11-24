@@ -5,6 +5,8 @@ const scenes: Record<ProjectThumbnail, { bg: string; label: string }> = {
   dashboard: { bg: '#ffc8a2', label: 'Dashboard thumbnail' },
   tasks: { bg: '#ffafcc', label: 'Task manager thumbnail' },
   desktop: { bg: '#cdb4db', label: 'Portfolio desktop thumbnail' },
+  vision: { bg: '#a9d6e5', label: 'Computer vision thumbnail' },
+  delivery: { bg: '#ffe69a', label: 'Delivery app thumbnail' },
 };
 
 export function ProjectCard({
@@ -53,6 +55,8 @@ export function ProjectThumbnail({ type, name }: { type: ProjectThumbnail; name:
       {type === 'dashboard' && <DashboardArt />}
       {type === 'tasks' && <TasksArt />}
       {type === 'desktop' && <DesktopArt />}
+      {type === 'vision' && <VisionArt />}
+      {type === 'delivery' && <DeliveryArt />}
     </div>
   );
 }
@@ -93,6 +97,30 @@ function DesktopArt() {
     <div className="relative h-full bg-[#cdb4db]" aria-hidden="true">
       <span className="absolute bottom-0 left-0 right-0 h-8 bg-[#ffc8a2]" />
       <span className="absolute left-1/2 top-4 h-10 w-16 -translate-x-1/2 bg-[#ffe69a] shadow-[2px_2px_0_#46364a]" />
+    </div>
+  );
+}
+
+function VisionArt() {
+  return (
+    <div className="relative h-full bg-[#a9d6e5]" aria-hidden="true">
+      <span className="absolute left-1/2 top-3 h-16 w-24 -translate-x-1/2 border-2 border-[#46364a] bg-[#fffdf3]" />
+      <span className="absolute left-1/2 top-6 h-8 w-8 -translate-x-1/2 bg-[#ffafcc] shadow-[2px_2px_0_#46364a]" />
+      <span className="absolute left-1/2 top-[3.2rem] h-5 w-12 -translate-x-1/2 bg-[#ffafcc] shadow-[2px_2px_0_#46364a]" />
+      <span className="absolute left-[calc(50%-3.4rem)] top-2 h-20 w-[6.8rem] border-2 border-dashed border-[#78b87a]" />
+    </div>
+  );
+}
+
+function DeliveryArt() {
+  return (
+    <div className="relative h-full bg-[#ffe69a]" aria-hidden="true">
+      <span className="absolute bottom-0 left-0 right-0 h-6 bg-[#46364a]" />
+      <span className="absolute bottom-6 left-6 h-10 w-16 bg-[#ffafcc] shadow-[2px_2px_0_#46364a]" />
+      <span className="absolute bottom-6 left-24 h-6 w-8 bg-[#fff3c4] shadow-[2px_2px_0_#46364a]" />
+      <span className="absolute bottom-3 left-8 h-4 w-4 bg-[#fffdf3] border-2 border-[#46364a]" />
+      <span className="absolute bottom-3 left-24 h-4 w-4 bg-[#fffdf3] border-2 border-[#46364a]" />
+      <span className="absolute right-6 top-4 h-8 w-8 bg-[#78b87a] shadow-[2px_2px_0_#46364a]" />
     </div>
   );
 }

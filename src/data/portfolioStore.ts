@@ -21,7 +21,7 @@ import {
   type SocialLinks,
 } from './portfolio';
 
-export const PORTFOLIO_STORAGE_KEY = 'portfolio-os-content-v1';
+export const PORTFOLIO_STORAGE_KEY = 'portfolio-os-content-v2';
 
 export interface PortfolioSnapshot {
   personalInfo: PersonalInfo;

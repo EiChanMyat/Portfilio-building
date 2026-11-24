@@ -8,6 +8,9 @@ const HELP = [
   'about      open about_me.txt',
   'projects   open project_explorer',
   'skills     open skills_manager.exe',
+  'experience open career_history.log',
+  'education  open education.dat',
+  'resume     open resume.pdf',
   'contact    open send_message.exe',
   'clear      clear the screen',
 ];
@@ -32,6 +35,9 @@ export function Terminal() {
       about: 'about',
       projects: 'projects',
       skills: 'skills',
+      experience: 'experience',
+      education: 'education',
+      resume: 'resume',
       contact: 'contact',
     };
 

@@ -32,6 +32,18 @@ export function AboutWindow() {
             ))}
           </ul>
         </section>
+        <section>
+          <h3 className="font-display text-base">Currently learning</h3>
+          <ul className="mt-1 list-disc pl-5">
+            {personalInfo.learningGoals.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </section>
+        <section>
+          <h3 className="font-display text-base">Outside of coding</h3>
+          <p className="mt-1">{personalInfo.hobbies.join(', ')}</p>
+        </section>
       </div>
 
       <aside className="pixel-border h-fit bg-[var(--window-yellow)] p-3">

@@ -188,12 +188,14 @@ export function ContactForm() {
           usable={isUsableHttpUrl(socialLinks.github)}
           onCopy={() => void copyValue('GitHub', socialLinks.github, isUsableHttpUrl(socialLinks.github))}
         />
-        <CopyRow
-          label="LinkedIn"
-          value={socialLinks.linkedin}
-          usable={isUsableHttpUrl(socialLinks.linkedin)}
-          onCopy={() => void copyValue('LinkedIn', socialLinks.linkedin, isUsableHttpUrl(socialLinks.linkedin))}
-        />
+        {isUsableHttpUrl(socialLinks.linkedin) && (
+          <CopyRow
+            label="LinkedIn"
+            value={socialLinks.linkedin}
+            usable
+            onCopy={() => void copyValue('LinkedIn', socialLinks.linkedin, true)}
+          />
+        )}
         <CopyRow
           label="Location"
           value={personalInfo.location}

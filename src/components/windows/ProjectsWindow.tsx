@@ -12,8 +12,7 @@ const FILTERS: { id: ProjectFilter; label: string }[] = [
   { id: 'all', label: 'All' },
   { id: 'web', label: 'Web' },
   { id: 'fullstack', label: 'Full Stack' },
-  { id: 'networking', label: 'Networking' },
-  { id: 'security', label: 'Security' },
+  { id: 'vision', label: 'Computer Vision' },
 ];
 
 export function ProjectExplorer() {

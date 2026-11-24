@@ -236,13 +236,15 @@ export function Desktop() {
             onSelect={() => setSelectedIcon('github')}
             onOpen={() => openLink(socialLinks.github, 'GitHub')}
           />
-          <DesktopIcon
-            label="LinkedIn"
-            icon={<IconLinkedIn size={28} />}
-            selected={selectedIcon === 'linkedin'}
-            onSelect={() => setSelectedIcon('linkedin')}
-            onOpen={() => openLink(socialLinks.linkedin, 'LinkedIn')}
-          />
+          {isUsableHttpUrl(socialLinks.linkedin) && (
+            <DesktopIcon
+              label="LinkedIn"
+              icon={<IconLinkedIn size={28} />}
+              selected={selectedIcon === 'linkedin'}
+              onSelect={() => setSelectedIcon('linkedin')}
+              onOpen={() => openLink(socialLinks.linkedin, 'LinkedIn')}
+            />
+          )}
         </nav>
 
         <RetroWindow id="welcome" icon={<IconHome size={16} />}>

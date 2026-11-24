@@ -43,6 +43,7 @@ export type SkillCategory =
   | 'databases'
   | 'tools'
   | 'testing'
+  | 'spoken'
   | 'other';
 
 export interface Skill {
@@ -53,9 +54,9 @@ export interface Skill {
 
 export type ProjectStatus = 'completed' | 'in-progress' | 'prototype';
 
-export type ProjectFilter = 'all' | 'web' | 'fullstack' | 'networking' | 'security';
+export type ProjectFilter = 'all' | 'web' | 'fullstack' | 'vision';
 
-export type ProjectThumbnail = 'network' | 'dashboard' | 'tasks' | 'desktop';
+export type ProjectThumbnail = 'network' | 'dashboard' | 'tasks' | 'desktop' | 'vision' | 'delivery';
 
 export interface Project {
   id: string;
@@ -119,42 +120,50 @@ export interface Award {
 
 export const personalInfo: PersonalInfo = {
   name: 'Ei Chan Myat',
-  role: 'FULL-STACK SOFTWARE ENGINEER',
-  shortRole: 'Software Engineer',
+  role: 'SOFTWARE ENGINEERING STUDENT',
+  shortRole: 'Software Engineering Student',
   osName: 'Ei Chan Myat OS',
   greeting: "Hello, I'm Ei Chan Myat",
   introduction:
-    "I'm a software engineer who enjoys turning ideas into reliable, accessible, and user-friendly applications. I work across frontend and backend development, with a focus on clean code, thoughtful interfaces, and practical problem-solving.",
-  specialization: 'Building secure, reliable, and user-friendly applications.',
+    "I'm a Software Engineering student at UIT in Yangon who enjoys turning ideas into useful applications. I build full-stack web apps and computer-vision projects, and I'm studying Japanese to start my engineering career in Japan.",
+  specialization: 'Full-stack web apps and computer-vision projects.',
   currentFocus:
-    '[Your current professional focus, e.g. full-stack web apps and network security labs.]',
-  location: '[CITY, COUNTRY]',
-  workPreference: '[REMOTE / HYBRID / ONSITE]',
-  availability: 'Available for opportunities',
+    'Studying for JLPT N3 while getting stronger in TypeScript, Next.js and Python.',
+  location: 'Yangon, Myanmar',
+  workPreference: 'Looking for an internship in Japan',
+  availability: 'Looking for an internship in Japan',
   currentlyCoding: 'Currently coding',
-  terminalStatus: '> Building useful software one commit at a time_',
-  bio: "[Write a short personal biography here. Mention how you got into software, what kind of problems you like solving, and what you care about in your work. Keep it honest and recruiter-friendly.]",
-  interests: ['[WEB DEVELOPMENT]', '[SECURITY]', '[AI]', '[CLOUD]'],
-  hobbies: ['[YOUR HOBBIES]'],
+  terminalStatus: '> Building apps and studying Japanese_',
+  bio:
+    "I study Software Engineering at the University of Information Technology (UIT) in Yangon, and I have completed four of my five years. I started with Java and PHP, then moved on to full-stack web development and computer vision. I enjoy making ideas come true by building applications, like Toma, my habit-tracking web app. My interest in Japan began with Japanese movies and online content. What I admire most is how people there work: their discipline, punctuality, respect for others and teamwork. That is why I started studying Japanese. I passed JLPT N4 and I am now studying for N3. I am honest, hardworking and eager to learn, and I want to build a long-term engineering career in Japan.",
+  interests: [
+    'Full-stack web development',
+    'Computer vision',
+    'Japan and the Japanese language',
+    'Building useful applications',
+  ],
+  hobbies: ['Photography', 'Chess'],
   learningGoals: [
-    '[Technology or skill you are currently learning]',
-    '[Another learning goal]',
+    'Japanese: JLPT N3',
+    'TypeScript, Next.js and Tailwind CSS',
+    'Python and APIs',
   ],
   careerObjective:
-    '[Describe the kind of role, team, or problems you want to work on next.]',
-  technologiesSummary: ['TypeScript', 'React', 'Node.js', 'Python', 'SQL'],
+    'I want to start as a developer at a company in Japan, learn its systems and way of working, and take on more responsibility over time, such as designing and improving larger parts of a system. In the long term I want to be an engineer my team and customers can trust.',
+  technologiesSummary: ['Java', 'PHP', 'JavaScript', 'React', 'MySQL', 'MongoDB', 'JLPT N4'],
   stats: {
-    projectsCompleted: '[N]',
-    technologiesUsed: '[N]',
-    yearsBuilding: '[N]',
-    availability: 'Open to opportunities',
+    projectsCompleted: '5',
+    technologiesUsed: '15+',
+    yearsBuilding: '4',
+    availability: 'Open to internships in Japan',
   },
 };
 
 export const socialLinks: SocialLinks = {
-  email: '[YOUR EMAIL]',
+  email: 'eichanmyat2020@gmail.com',
   github: 'https://github.com/EiChanMyat',
-  linkedin: '[YOUR LINKEDIN URL]',
+  // Add your LinkedIn URL here when you have one. The LinkedIn icon stays hidden until then.
+  linkedin: '',
 };
 
 export const skillCategories: { id: SkillCategory; label: string }[] = [
@@ -163,261 +172,307 @@ export const skillCategories: { id: SkillCategory; label: string }[] = [
   { id: 'backend', label: 'Backend' },
   { id: 'databases', label: 'Databases' },
   { id: 'tools', label: 'Tools and Platforms' },
-  { id: 'testing', label: 'Testing' },
+  { id: 'spoken', label: 'Spoken Languages' },
   { id: 'other', label: 'Other Knowledge' },
 ];
 
 export const skills: Skill[] = [
+  { name: 'Java', category: 'languages', level: 'comfortable' },
+  { name: 'PHP', category: 'languages', level: 'comfortable' },
   { name: 'JavaScript', category: 'languages', level: 'comfortable' },
-  { name: 'TypeScript', category: 'languages', level: 'comfortable' },
-  { name: 'Python', category: 'languages', level: 'working' },
-  { name: 'Java', category: 'languages', level: 'working' },
-  { name: 'React', category: 'frontend', level: 'comfortable' },
+  { name: 'Python', category: 'languages', level: 'learning' },
+  { name: 'TypeScript', category: 'languages', level: 'learning' },
   { name: 'HTML', category: 'frontend', level: 'comfortable' },
   { name: 'CSS', category: 'frontend', level: 'comfortable' },
-  { name: 'Tailwind CSS', category: 'frontend', level: 'comfortable' },
-  { name: 'Node.js', category: 'backend', level: 'working' },
-  { name: 'Express', category: 'backend', level: 'working' },
-  { name: 'Django', category: 'backend', level: 'learning' },
-  { name: 'PostgreSQL', category: 'databases', level: 'working' },
-  { name: 'MySQL', category: 'databases', level: 'working' },
-  { name: 'MongoDB', category: 'databases', level: 'learning' },
+  { name: 'React', category: 'frontend', level: 'comfortable' },
+  { name: 'Bootstrap', category: 'frontend', level: 'comfortable' },
+  { name: 'jQuery', category: 'frontend', level: 'comfortable' },
+  { name: 'Next.js', category: 'frontend', level: 'learning' },
+  { name: 'Tailwind CSS', category: 'frontend', level: 'learning' },
+  { name: 'FastAPI', category: 'backend', level: 'learning' },
+  { name: 'MySQL (phpMyAdmin)', category: 'databases', level: 'comfortable' },
+  { name: 'MongoDB', category: 'databases', level: 'comfortable' },
+  { name: 'Supabase', category: 'databases', level: 'comfortable' },
   { name: 'Git', category: 'tools', level: 'comfortable' },
   { name: 'GitHub', category: 'tools', level: 'comfortable' },
-  { name: 'Docker', category: 'tools', level: 'learning' },
-  { name: 'Linux', category: 'tools', level: 'working' },
-  { name: 'VS Code', category: 'tools', level: 'comfortable' },
-  { name: 'Vitest', category: 'testing', level: 'working' },
-  { name: 'Jest', category: 'testing', level: 'working' },
-  { name: 'Playwright', category: 'testing', level: 'learning' },
-  { name: 'REST APIs', category: 'other', level: 'comfortable' },
-  { name: 'Responsive design', category: 'other', level: 'comfortable' },
-  { name: 'Networking', category: 'other', level: 'working' },
-  { name: 'Security fundamentals', category: 'other', level: 'working' },
+  { name: 'Japanese (JLPT N4)', category: 'spoken', level: 'working' },
+  { name: 'English (Intermediate)', category: 'spoken', level: 'working' },
+  { name: 'APIs', category: 'other', level: 'learning' },
+  { name: 'Computer vision (YOLOv8)', category: 'other', level: 'learning' },
 ];
 
 export const projects: Project[] = [
   {
-    id: 'secure-access',
-    name: 'Enterprise Secure Remote Access',
+    id: 'deli-app',
+    name: 'Deli App',
     summary:
-      'A virtual enterprise network lab for secure remote access, isolation, and controlled security testing.',
+      'A multi-role food delivery platform for Yangon with login, search, live order tracking and an admin dashboard.',
     problem:
-      'Teams need a realistic way to practice firewall policy, VPN access, and network segmentation without exposing a live production environment.',
+      'Food delivery needs customers, restaurants and admins to work from the same live order data, with a separate view for each role.',
     features: [
-      'Site-to-site style remote access with OpenVPN',
-      'Firewall policies and network isolation on pfSense',
-      'Segmented lab hosts on Ubuntu Server and Windows',
-      'Controlled testing workflow with Kali Linux',
+      'Multi-role login for different kinds of users',
+      'Search to find food and restaurants',
+      'Live order tracking',
+      'Admin dashboard',
+      'Data mining on platform data',
     ],
     contribution:
-      '[Describe your role: topology design, firewall rules, VPN setup, documentation, or testing.]',
+      'Full-stack developer. I worked on both the Next.js front end and the MongoDB-backed back end.',
     challenge:
-      'Keeping lab networks isolated while still allowing authenticated remote access and repeatable security tests.',
+      'Keeping one set of order data consistent across several user roles while showing live order status.',
     outcome:
-      'A reusable virtual enterprise environment for demonstrating secure remote access patterns. Some hardening and documentation tasks are still in progress.',
-    technologies: [
-      'pfSense',
-      'OpenVPN',
-      'Ubuntu Server',
-      'Windows',
-      'Kali Linux',
-      'GNS3',
-      'VirtualBox',
-    ],
-    tags: ['networking', 'security'],
-    status: 'in-progress',
-    github: '',
+      'A working multi-role platform that covers the ordering flow from login to order tracking.',
+    technologies: ['Next.js', 'TypeScript', 'MongoDB'],
+    tags: ['web', 'fullstack'],
+    status: 'completed',
+    github: 'https://github.com/LAPyae23/deli_app',
     live: '',
-    thumbnail: 'network',
+    thumbnail: 'delivery',
   },
   {
-    id: 'reliability-dashboard',
-    name: 'Reliability Ratio Dashboard',
+    id: 'smart-energy',
+    name: 'Smart Energy-Saving System',
     summary:
-      'A dashboard for monitoring and visualizing reliability metrics so teams can spot issues early.',
+      'A real-time computer-vision system that detects whether a room is occupied from a webcam feed and automates energy saving.',
     problem:
-      'Reliability data was scattered, which made it hard to compare trends, filter incidents, and support decisions.',
+      'Lights and appliances are often left on in empty rooms. This system uses a camera to notice when nobody is there.',
     features: [
-      'Charts for uptime, error ratio, and incident trends',
-      'Filters by service, date range, and severity',
-      'Lightweight data processing for summary cards',
-      'Decision-support view for weekly reliability review',
+      'Real-time person detection from a webcam with YOLOv8',
+      'Room occupancy status',
+      'Automatic energy-saving actions',
+      'FastAPI backend that connects detection and the interface',
     ],
     contribution:
-      '[Describe what you built: UI, data transforms, chart logic, or API integration.]',
+      'Front-end and UI developer. I built the interface for a system that runs YOLOv8 detection behind a FastAPI backend.',
     challenge:
-      'Presenting several related metrics clearly without overwhelming the viewer.',
+      'Showing real-time detection results clearly while the backend processes a live webcam feed.',
     outcome:
-      'A prototype dashboard that turns raw reliability numbers into a readable operations view.',
-    technologies: ['React', 'TypeScript', 'Charting', 'CSS'],
+      'A working system that turns webcam detection into automatic energy-saving decisions.',
+    technologies: ['Python', 'YOLOv8', 'FastAPI'],
+    tags: ['vision', 'web'],
+    status: 'completed',
+    github: 'https://github.com/MinnThikeTunn/Vision-based-Smart-Energy-saving-system',
+    live: '',
+    thumbnail: 'vision',
+  },
+  {
+    id: 'toma',
+    name: 'Toma: Habit Tracker',
+    summary:
+      'A gamified self-care and habit-tracking web app with a focus timer, mood journal, to-do list, money tracker and achievements.',
+    problem:
+      'Self-care habits are easy to drop when tracking feels like a chore. Toma adds achievements to make daily routines more rewarding.',
+    features: [
+      'Focus timer',
+      'Mood journal',
+      'To-do list',
+      'Money tracker',
+      'Achievements that reward progress',
+    ],
+    contribution:
+      'Software developer. I designed and built the app with HTML, Tailwind CSS and JavaScript.',
+    challenge:
+      'Bringing several small tools into one app that feels consistent and easy to use.',
+    outcome: 'A live web app that puts a person\'s daily self-care tools in one place.',
+    technologies: ['HTML', 'Tailwind CSS', 'JavaScript'],
     tags: ['web'],
-    status: 'prototype',
+    status: 'completed',
     github: '',
-    live: '',
-    thumbnail: 'dashboard',
+    live: 'https://toma-self-improve-og.vercel.app/',
+    thumbnail: 'tasks',
   },
   {
-    id: 'task-manager',
-    name: 'Full-Stack Task Manager',
+    id: 'etms',
+    name: 'Employee Task Management System',
     summary:
-      'A task app with authentication, CRUD operations, filtering, and database persistence.',
+      'A web system for managing employees and tasks, with attendance, daily reports, notifications and chat. It is built on an open-source base.',
     problem:
-      'I needed a complete full-stack project that covers real application flows rather than isolated UI widgets.',
+      'Teams need one place to assign tasks, track attendance, collect daily reports and talk to each other.',
     features: [
-      'User authentication and protected routes',
-      'Create, edit, complete, and delete tasks',
-      'Filtering and status views',
-      'Responsive interface with persistent storage',
+      'Employee and task management',
+      'Attendance tracking',
+      'Daily reports',
+      'Notifications',
+      'Built-in chat',
     ],
     contribution:
-      '[Describe frontend, backend, data model, and any auth work you completed.]',
+      'Software developer. I worked on the system with PHP, MySQL, Bootstrap and jQuery, building on an open-source project.',
     challenge:
-      'Keeping validation, auth, and CRUD flows consistent across the client and server.',
-    outcome:
-      'A working full-stack starter that demonstrates end-to-end feature delivery.',
-    technologies: ['React', 'Node.js', 'Express', 'PostgreSQL'],
+      'Understanding and extending an existing open-source codebase instead of starting from scratch.',
+    outcome: 'A deployed demo that covers day-to-day employee and task management.',
+    technologies: ['PHP', 'MySQL', 'Bootstrap', 'jQuery'],
     tags: ['web', 'fullstack'],
     status: 'completed',
     github: '',
-    live: '',
-    thumbnail: 'tasks',
+    live: 'https://etms-demo.great-site.net',
+    thumbnail: 'dashboard',
   },
   {
     id: 'portfolio-os',
     name: 'Personal Portfolio OS',
     summary:
-      'This retro pixel desktop portfolio, built as a reusable windowed interface for recruiters.',
+      'This retro pixel desktop portfolio, built as a windowed interface that presents my projects and skills.',
     problem:
       'A standard single-page portfolio can feel generic. I wanted something memorable that still stays readable and accessible.',
     features: [
-      'Reusable window manager with focus, minimize, and maximize',
-      'Responsive desktop, tablet, and mobile layouts',
-      'Keyboard shortcuts, start menu, and terminal',
+      'Reusable window manager with focus, minimize and maximize',
+      'Responsive desktop, tablet and mobile layouts',
+      'Keyboard shortcuts, start menu and terminal',
       'Content stored in one editable data file',
     ],
     contribution:
-      'Designed and implemented the desktop shell, window system, theming, accessibility, and portfolio sections.',
+      'Web developer. I built the desktop shell, window system, theming and portfolio sections.',
     challenge:
       'Making overlapping windows feel like a desktop OS without hiding content or breaking mobile use.',
     outcome:
-      'A recruiter-friendly portfolio that presents projects and experience through an original retro interface.',
+      'A portfolio that presents my projects and experience through an original retro interface.',
     technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion'],
     tags: ['web'],
     status: 'completed',
-    github: '',
-    live: '',
+    github: 'https://github.com/EiChanMyat',
+    live: 'https://portfilio-building.vercel.app/',
     thumbnail: 'desktop',
   },
 ];
 
 export const experience: ExperienceItem[] = [
   {
-    id: 'exp-academic',
+    id: 'exp-uit',
     category: 'academic',
-    position: '[PROJECT ROLE, e.g. Frontend Developer]',
-    organization: '[COURSE / UNIVERSITY PROJECT NAME]',
-    dateRange: '[START – END]',
-    location: '[CITY, COUNTRY]',
+    position: 'Software Engineering Student',
+    organization: 'University of Information Technology (UIT)',
+    dateRange: '2022 – Present',
+    location: 'Yangon, Myanmar',
     bullets: [
-      '[Achievement: what you designed, built, or shipped]',
-      '[Achievement: a concrete technical decision and why it mattered]',
-      '[Achievement: collaboration, documentation, or demo outcome]',
+      'Completed four years of the Software Engineering program and now in the 5th year.',
+      'Studied Java, PHP and full-stack web development.',
+      'Built web, management and computer-vision projects alongside my studies.',
     ],
-    technologies: ['[Tech 1]', '[Tech 2]', '[Tech 3]'],
+    technologies: ['Java', 'PHP', 'JavaScript', 'MySQL'],
   },
   {
-    id: 'exp-personal',
+    id: 'exp-projects',
     category: 'personal',
-    position: 'Independent Developer',
-    organization: 'Personal Projects',
-    dateRange: '[YEAR – Present]',
-    location: '[CITY, COUNTRY]',
+    position: 'Software Developer',
+    organization: 'Web and Computer-Vision Projects',
+    dateRange: '2022 – Present',
+    location: 'Yangon, Myanmar',
     bullets: [
-      '[Describe a project you built end-to-end]',
-      '[Mention a bug, constraint, or design problem you solved]',
-      '[Note what you learned and reused later]',
+      'Built Deli App, a multi-role food delivery platform for Yangon, as a full-stack developer.',
+      'Built the front end and UI for a YOLOv8 and FastAPI system that detects room occupancy to save energy.',
+      'Created Toma, a gamified habit tracker, and this portfolio website.',
     ],
-    technologies: ['React', 'TypeScript', 'Node.js'],
-  },
-  {
-    id: 'exp-team',
-    category: 'team',
-    position: '[TEAM ROLE]',
-    organization: '[HACKATHON / CLASS TEAM / CLUB]',
-    dateRange: '[DATES]',
-    location: '[CITY, COUNTRY / Remote]',
-    bullets: [
-      '[What you owned on the team]',
-      '[How you coordinated or reviewed work]',
-      '[Result of the project or demo]',
-    ],
-    technologies: ['[Tech 1]', '[Tech 2]'],
+    technologies: ['Next.js', 'TypeScript', 'MongoDB', 'Python', 'FastAPI', 'React'],
   },
   {
     id: 'exp-coursework',
     category: 'coursework',
     position: 'Relevant Coursework',
-    organization: '[UNIVERSITY NAME]',
-    dateRange: '[START YEAR–GRADUATION YEAR]',
-    location: '[CITY, COUNTRY]',
+    organization: 'University of Information Technology (UIT)',
+    dateRange: '2022 – Present',
+    location: 'Yangon, Myanmar',
     bullets: [
-      '[Course: e.g. Data Structures — key project or topic]',
-      '[Course: e.g. Computer Networks — lab or assignment highlight]',
-      '[Course: e.g. Databases — schema or query work]',
+      'Computer Vision',
+      'Data Analysis and Management',
+      'Distributed Programming',
+      'Software Construction and Evolution',
+      'Professional Communications',
     ],
-    technologies: ['[Languages / tools used in class]'],
+    technologies: ['Java', 'PHP', 'Python'],
   },
 ];
 
 export const volunteer: ExperienceItem[] = [
   {
-    id: 'vol-1',
+    id: 'vol-uit-fresher',
     category: 'volunteer',
-    position: '[VOLUNTEER ROLE]',
-    organization: '[ORGANIZATION OR COMMUNITY]',
-    dateRange: '[START – END]',
-    location: '[CITY, COUNTRY]',
+    position: 'Event Volunteer',
+    organization: 'UIT Fresher Welcome 2024',
+    dateRange: '2024',
+    location: 'Yangon, Myanmar',
     bullets: [
-      '[What you helped with]',
-      '[Who you worked with]',
-      '[A result, event, or skill you practiced]',
+      'Volunteered at the UIT Fresher Welcome event as part of a team of student volunteers.',
+      'Received a Certificate of Appreciation for dedication, time and effort.',
     ],
-    technologies: ['[Skill or tool]'],
+    technologies: ['Teamwork'],
+  },
+  {
+    id: 'vol-htamane',
+    category: 'volunteer',
+    position: 'Event Volunteer',
+    organization: 'Htamane Festival (school event)',
+    dateRange: '',
+    location: 'Yangon, Myanmar',
+    bullets: ['Volunteered at the school Htamane Festival.'],
+    technologies: ['Teamwork'],
+  },
+  {
+    id: 'vol-blood',
+    category: 'volunteer',
+    position: 'Regular Blood Donor',
+    organization: 'Voluntary blood donation',
+    dateRange: 'Ongoing',
+    location: 'Yangon, Myanmar',
+    bullets: ['Have donated blood 8 times so far.'],
+    technologies: [],
+  },
+  {
+    id: 'vol-clubs',
+    category: 'volunteer',
+    position: 'Club Member',
+    organization: 'Photography Club and Chess Club',
+    dateRange: '',
+    location: 'Yangon, Myanmar',
+    bullets: ['Member of both the photography club and the chess club.'],
+    technologies: [],
   },
 ];
 
 export const education: EducationItem[] = [
   {
-    id: 'edu-1',
-    degree: '[DEGREE NAME]',
-    university: '[UNIVERSITY NAME]',
-    years: '[START YEAR–GRADUATION YEAR]',
-    subjects: ['[Subject 1]', '[Subject 2]', '[Subject 3]'],
+    id: 'edu-uit',
+    degree: 'Software Engineering (5th year, 4th year completed)',
+    university: 'University of Information Technology (UIT), Yangon',
+    years: '2022 – Present',
+    subjects: [
+      'Java',
+      'PHP',
+      'Full-stack web development',
+      'Computer Vision',
+      'Data Analysis and Management',
+      'Distributed Programming',
+      'Software Construction and Evolution',
+    ],
   },
 ];
 
 export const certifications: Certification[] = [
   {
-    id: 'cert-1',
-    name: '[CERTIFICATION NAME]',
-    issuer: '[ISSUING ORGANIZATION]',
-    year: '[YEAR]',
+    id: 'cert-jlpt-n4',
+    name: 'JLPT N4 (Japanese-Language Proficiency Test), Passed',
+    issuer: 'Japan Foundation and JEES',
+    year: '2023',
+  },
+  {
+    id: 'cert-ket',
+    name: 'Cambridge English: Key (KET), CEFR A2, Pass with Merit',
+    issuer: 'Cambridge Assessment English',
+    year: '2018',
   },
 ];
 
 export const awards: Award[] = [
   {
-    id: 'award-1',
-    name: '[AWARD OR ACHIEVEMENT]',
-    year: '[YEAR]',
-    description: '[One-line description, or delete this item if not applicable]',
+    id: 'award-fresher-welcome',
+    name: 'Certificate of Appreciation',
+    year: '2024',
+    description: 'Awarded by UIT for volunteering at UIT Fresher Welcome 2024.',
   },
 ];
 
 export const resume = {
   path: '/resume.pdf',
-  lastUpdated: '[LAST UPDATED DATE]',
+  lastUpdated: 'November 2026',
 };
 
 /**
@@ -427,10 +482,10 @@ export const resume = {
 export const contactFormEndpoint = '';
 
 export const siteMeta = {
-  title: 'Ei Chan Myat | Software Engineer',
+  title: 'Ei Chan Myat | Software Engineering Student',
   description:
-    'Portfolio of Ei Chan Myat, a software engineer building reliable, accessible, and user-friendly applications.',
-  canonical: 'https://your-domain.example/',
+    'Portfolio of Ei Chan Myat, a Software Engineering student in Yangon who builds full-stack web apps and computer-vision projects and is aiming for an engineering career in Japan.',
+  canonical: 'https://portfilio-building.vercel.app/',
 };
 
 export function isPlaceholder(value: string): boolean {
