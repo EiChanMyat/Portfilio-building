@@ -1,6 +1,6 @@
 import { useMemo, useState, type FormEvent, type KeyboardEvent } from 'react';
-import { personalInfo } from '../../data/portfolio';
 import { useDesktop } from '../../hooks/useDesktop';
+import { usePortfolio } from '../../hooks/usePortfolio';
 import type { WindowId } from '../../types/windows';
 
 const HELP = [
@@ -14,12 +14,16 @@ const HELP = [
 
 export function Terminal() {
   const { openWindow } = useDesktop();
+  const { personalInfo } = usePortfolio();
   const [lines, setLines] = useState<string[]>([
     `${personalInfo.osName} [Version 1.0]`,
     'Type help for a list of commands.',
   ]);
   const [value, setValue] = useState('');
-  const prompt = useMemo(() => `${personalInfo.name.split(' ')[0].toLowerCase()}@portfolio:~$`, []);
+  const prompt = useMemo(
+    () => `${personalInfo.name.split(' ')[0].toLowerCase()}@portfolio:~$`,
+    [personalInfo.name],
+  );
 
   const run = (raw: string) => {
     const command = raw.trim().toLowerCase();

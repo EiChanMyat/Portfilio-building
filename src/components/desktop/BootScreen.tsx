@@ -1,10 +1,12 @@
-import { personalInfo } from '../../data/portfolio';
+import { usePortfolio } from '../../hooks/usePortfolio';
 
 interface BootScreenProps {
   onSkip: () => void;
 }
 
 export function BootScreen({ onSkip }: BootScreenProps) {
+  const { personalInfo } = usePortfolio();
+
   return (
     <div className="fixed inset-0 z-[200] flex items-center justify-center bg-[#2a1b33] text-[#78B87A]">
       <div className="w-[min(92vw,420px)] pixel-border bg-[#1a1222] p-6">

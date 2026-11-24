@@ -97,6 +97,19 @@ export function IconResume({ size, label }: IconProps) {
   );
 }
 
+export function IconVolunteer({ size, label }: IconProps) {
+  return (
+    <PixelSvg size={size} label={label}>
+      <rect width="32" height="32" fill="#FFAFCC" />
+      <rect x="6" y="8" width="20" height="16" fill="#FFFDF3" stroke="#46364A" strokeWidth="2" />
+      <rect x="14" y="11" width="4" height="10" fill="#D95D5D" />
+      <rect x="11" y="14" width="10" height="4" fill="#D95D5D" />
+      <rect x="8" y="20" width="4" height="2" fill="#78B87A" />
+      <rect x="20" y="20" width="4" height="2" fill="#78B87A" />
+    </PixelSvg>
+  );
+}
+
 export function IconContact({ size, label }: IconProps) {
   return (
     <PixelSvg size={size} label={label}>
@@ -215,6 +228,40 @@ export function IconSound({ size = 18, label }: IconProps) {
       <rect x="12" y="8" width="4" height="16" fill="#46364A" />
       <rect x="18" y="10" width="2" height="12" fill="#F6A23C" />
       <rect x="22" y="8" width="2" height="16" fill="#F6A23C" />
+    </PixelSvg>
+  );
+}
+
+export function IconIdCard({ size, label }: IconProps) {
+  return (
+    <PixelSvg size={size} label={label}>
+      <rect width="32" height="32" fill="#FFF8E8" />
+      <rect x="4" y="6" width="24" height="20" fill="#FFFDF3" stroke="#46364A" strokeWidth="2" />
+      <rect x="8" y="10" width="10" height="3" fill="#46364A" />
+      <rect x="8" y="15" width="16" height="2" fill="#B8A1D9" />
+      <rect x="8" y="19" width="8" height="2" fill="#78B87A" />
+    </PixelSvg>
+  );
+}
+
+export function IconEdit({ size, label }: IconProps) {
+  return (
+    <PixelSvg size={size} label={label}>
+      <rect width="32" height="32" fill="#FFE69A" />
+      <rect x="6" y="22" width="12" height="4" fill="#FFC8A2" stroke="#46364A" strokeWidth="2" />
+      <rect x="10" y="16" width="10" height="8" fill="#F6A23C" stroke="#46364A" strokeWidth="2" />
+      <rect x="16" y="8" width="8" height="10" fill="#F6A23C" stroke="#46364A" strokeWidth="2" />
+      <rect x="22" y="6" width="5" height="5" fill="#FFAFCC" stroke="#46364A" strokeWidth="2" />
+    </PixelSvg>
+  );
+}
+
+export function IconCopy({ size = 14, label }: IconProps) {
+  return (
+    <PixelSvg size={size} label={label}>
+      <rect width="32" height="32" fill="#FFE69A" />
+      <rect x="10" y="6" width="16" height="16" fill="#FFFDF3" stroke="#46364A" strokeWidth="2" />
+      <rect x="6" y="10" width="16" height="16" fill="#FFC8A2" stroke="#46364A" strokeWidth="2" />
     </PixelSvg>
   );
 }

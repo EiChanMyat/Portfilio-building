@@ -62,11 +62,13 @@ export function useUiSound() {
   return {
     enabled: isOn,
     toggle: () => {
-      setIsOn((value) => {
-        if (value) stopSoftMusic();
-        else startSoftMusic();
-        return !value;
-      });
+      const nextValue = !isOn;
+      setIsOn(nextValue);
+      if (nextValue) {
+        startSoftMusic();
+        return;
+      }
+      stopSoftMusic();
     },
     play: playUiBlip,
   };

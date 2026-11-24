@@ -1,6 +1,9 @@
-import { experience, experienceLabels } from '../../data/portfolio';
+import { experienceLabels } from '../../data/portfolio';
+import { usePortfolio } from '../../hooks/usePortfolio';
 
 export function ExperienceWindow() {
+  const { experience } = usePortfolio();
+
   return (
     <ol className="relative space-y-5 border-l-4 border-[var(--dark-outline)] pl-4">
       {experience.map((item) => (

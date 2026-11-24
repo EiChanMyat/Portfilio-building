@@ -1,10 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import {
-  isUsableHttpUrl,
-  siteMeta,
-  socialLinks,
-} from '../../data/portfolio';
+import { isUsableHttpUrl } from '../../data/portfolio';
+import { isEditorUnlocked } from '../../data/editorLock';
 import { useDesktop } from '../../hooks/useDesktop';
+import { usePortfolio } from '../../hooks/usePortfolio';
 import { useClock } from '../../hooks/useClock';
 import { useIsMobile } from '../../hooks/useMediaQuery';
 import { playUiBlip } from '../../hooks/useUiSound';
@@ -22,10 +20,13 @@ import { ProjectsWindow } from '../windows/ProjectsWindow';
 import { ExperienceWindow } from '../windows/ExperienceWindow';
 import { EducationWindow } from '../windows/EducationWindow';
 import { ResumeWindow } from '../windows/ResumeWindow';
+import { VolunteerWindow } from '../windows/VolunteerWindow';
 import { ThemeWindow } from '../windows/ThemeWindow';
+import { EditorWindow } from '../windows/EditorWindow';
 import {
   IconAbout,
   IconContact,
+  IconEdit,
   IconEducation,
   IconExperience,
   IconGithub,
@@ -33,11 +34,13 @@ import {
   IconProjects,
   IconResume,
   IconSkills,
+  IconVolunteer,
   IconHome,
   IconTerminal,
   IconTheme,
 } from '../ui/PixelIcons';
 import { DesktopIcon } from './DesktopIcon';
+import { EditorLock } from './EditorLock';
 import { IdentityCard } from './IdentityCard';
 import { Taskbar } from './Taskbar';
 import { Wallpaper } from './Wallpaper';
@@ -51,10 +54,12 @@ export function Desktop() {
     openWindows,
     getWindow,
   } = useDesktop();
+  const { socialLinks } = usePortfolio();
   const { timeLabel, dateLabel } = useClock();
   const isMobile = useIsMobile();
   const greeted = useRef(false);
   const [selectedIcon, setSelectedIcon] = useState<string | null>(null);
+  const [lockOpen, setLockOpen] = useState(false);
 
   const openApp = useCallback(
     (id: WindowId) => {
@@ -69,10 +74,16 @@ export function Desktop() {
     [getWindow, notify, openWindow],
   );
 
+  const requestEditor = useCallback(() => {
+    setSelectedIcon('editor');
+    if (isEditorUnlocked()) {
+      openApp('editor');
+      return;
+    }
+    setLockOpen(true);
+  }, [openApp]);
+
   useEffect(() => {
-    document.title = siteMeta.title;
-    const description = document.querySelector('meta[name="description"]');
-    if (description) description.setAttribute('content', siteMeta.description);
     if (greeted.current) return;
     greeted.current = true;
     notify({
@@ -108,7 +119,7 @@ export function Desktop() {
     if (!isUsableHttpUrl(url)) {
       notify({
         title: `${label} not set`,
-        message: `Replace the ${label} placeholder in src/data/portfolio.ts.`,
+        message: `Open Edit and set your ${label} link.`,
         tone: 'error',
       });
       return;
@@ -124,11 +135,24 @@ export function Desktop() {
         Skip to welcome window
       </a>
       <Wallpaper />
-      <header className="relative z-10 flex items-start justify-between gap-2 px-3 pt-3">
-        <IdentityCard />
-        <div className="pixel-border hidden bg-[var(--window-bg)] px-3 py-2 text-right sm:block">
-          <p className="font-display text-sm">{timeLabel}</p>
-          <p className="font-body text-xs text-[var(--muted-text)]">{dateLabel}</p>
+      <header className="pointer-events-none relative z-10 flex items-start justify-between gap-2 px-3 pt-3">
+        <div className="pointer-events-auto">
+          <IdentityCard />
+        </div>
+        <div className="pointer-events-auto flex w-[7.75rem] shrink-0 flex-col items-stretch gap-2">
+          <div className="pixel-border hidden bg-[var(--window-bg)] px-3 py-2 text-right sm:block">
+            <p className="font-display text-sm">{timeLabel}</p>
+            <p className="font-body text-xs text-[var(--muted-text)]">{dateLabel}</p>
+          </div>
+          <button
+            type="button"
+            className="retro-btn retro-btn-primary flex min-h-10 items-center justify-center gap-1.5 px-2 py-1.5"
+            aria-label="Edit portfolio content"
+            onClick={requestEditor}
+          >
+            <IconEdit size={16} />
+            <span className="font-display text-sm">Edit</span>
+          </button>
         </div>
       </header>
 
@@ -190,6 +214,14 @@ export function Desktop() {
             onOpen={() => openApp('resume')}
           />
           <DesktopIcon
+            label="Volunteer"
+            icon={<IconVolunteer size={28} />}
+            selected={selectedIcon === 'volunteer'}
+            isOpen={isWindowOpen('volunteer')}
+            onSelect={() => setSelectedIcon('volunteer')}
+            onOpen={() => openApp('volunteer')}
+          />
+          <DesktopIcon
             label="Contact"
             icon={<IconContact size={28} />}
             selected={selectedIcon === 'contact'}
@@ -234,6 +266,9 @@ export function Desktop() {
         <RetroWindow id="resume" icon={<IconResume size={16} />}>
           <ResumeWindow />
         </RetroWindow>
+        <RetroWindow id="volunteer" icon={<IconVolunteer size={16} />}>
+          <VolunteerWindow />
+        </RetroWindow>
         <RetroWindow id="contact" icon={<IconContact size={16} />}>
           <ContactWindow />
         </RetroWindow>
@@ -243,11 +278,23 @@ export function Desktop() {
         <RetroWindow id="theme" icon={<IconTheme size={16} />}>
           <ThemeWindow />
         </RetroWindow>
+        <RetroWindow id="editor" icon={<IconEdit size={16} />}>
+          <EditorWindow />
+        </RetroWindow>
       </main>
 
       <PixelBuddy />
       <NotificationStack />
       <Taskbar />
+      {lockOpen && (
+        <EditorLock
+          onUnlock={() => {
+            setLockOpen(false);
+            openApp('editor');
+          }}
+          onCancel={() => setLockOpen(false)}
+        />
+      )}
     </div>
   );
 }

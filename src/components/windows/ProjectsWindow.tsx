@@ -3,9 +3,9 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
   isUsableHttpUrl,
   projectStatusLabels,
-  projects,
   type ProjectFilter,
 } from '../../data/portfolio';
+import { usePortfolio } from '../../hooks/usePortfolio';
 import { ProjectCard, ProjectThumbnail } from './ProjectCard';
 
 const FILTERS: { id: ProjectFilter; label: string }[] = [
@@ -17,6 +17,7 @@ const FILTERS: { id: ProjectFilter; label: string }[] = [
 ];
 
 export function ProjectExplorer() {
+  const { projects } = usePortfolio();
   const [filter, setFilter] = useState<ProjectFilter>('all');
   const [selectedId, setSelectedId] = useState(projects[0]?.id ?? '');
   const reduced = useReducedMotion();
@@ -26,7 +27,7 @@ export function ProjectExplorer() {
       filter === 'all'
         ? projects
         : projects.filter((project) => project.tags.includes(filter)),
-    [filter],
+    [filter, projects],
   );
 
   const selected = visible.find((project) => project.id === selectedId) ?? visible[0];

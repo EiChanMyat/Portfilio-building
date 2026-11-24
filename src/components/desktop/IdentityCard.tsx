@@ -1,10 +1,18 @@
-import { personalInfo } from '../../data/portfolio';
+import { usePortfolio } from '../../hooks/usePortfolio';
+import { ProfilePhoto } from '../ui/ProfilePhoto';
 
 export function IdentityCard() {
+  const { personalInfo } = usePortfolio();
+
   return (
     <div className="pixel-border max-w-[min(92vw,300px)] bg-[var(--window-bg)] px-4 py-3">
-      <h1 className="font-display text-xl leading-tight sm:text-2xl">{personalInfo.name}</h1>
-      <p className="mt-1 font-display text-sm text-[var(--muted-text)]">{personalInfo.shortRole}</p>
+      <div className="flex items-center gap-3">
+        <ProfilePhoto size={64} className="shrink-0 border-2 border-[var(--dark-outline)]" />
+        <div className="min-w-0">
+          <h1 className="font-display text-xl leading-tight sm:text-2xl">{personalInfo.name}</h1>
+          <p className="mt-1 font-display text-sm text-[var(--muted-text)]">{personalInfo.shortRole}</p>
+        </div>
+      </div>
       <p className="mt-2 font-body text-sm leading-relaxed text-[var(--dark-text)]">
         {personalInfo.specialization}
       </p>

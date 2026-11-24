@@ -1,15 +1,17 @@
 import { useMemo, useState } from 'react';
-import { skillCategories, skills, type SkillCategory } from '../../data/portfolio';
+import { skillCategories, type SkillCategory } from '../../data/portfolio';
+import { usePortfolio } from '../../hooks/usePortfolio';
 import { SkillBadge } from '../ui/SkillBadge';
 
 type Filter = 'all' | SkillCategory;
 
 export function SkillsWindow() {
+  const { skills } = usePortfolio();
   const [filter, setFilter] = useState<Filter>('all');
 
   const visible = useMemo(
     () => (filter === 'all' ? skills : skills.filter((skill) => skill.category === filter)),
-    [filter],
+    [filter, skills],
   );
 
   const groups = filter === 'all' ? skillCategories : skillCategories.filter((item) => item.id === filter);
@@ -45,8 +47,8 @@ export function SkillsWindow() {
           <section key={group.id}>
             <h3 className="font-display text-sm">{group.label}</h3>
             <ul className="mt-2 grid gap-2 sm:grid-cols-2">
-              {items.map((skill) => (
-                <SkillBadge key={skill.name} skill={skill} />
+              {items.map((skill, index) => (
+                <SkillBadge key={`${skill.category}-${skill.name}-${index}`} skill={skill} />
               ))}
             </ul>
           </section>

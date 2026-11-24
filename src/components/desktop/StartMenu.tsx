@@ -12,6 +12,7 @@ import {
   IconRestart,
   IconResume,
   IconSkills,
+  IconVolunteer,
   IconTerminal,
   IconTheme,
 } from '../ui/PixelIcons';
@@ -24,6 +25,7 @@ const ITEMS: { id: WindowId | 'restart'; label: string; icon: typeof IconHome }[
   { id: 'experience', label: 'Experience', icon: IconExperience },
   { id: 'education', label: 'Education', icon: IconEducation },
   { id: 'resume', label: 'Resume', icon: IconResume },
+  { id: 'volunteer', label: 'Volunteer', icon: IconVolunteer },
   { id: 'contact', label: 'Contact', icon: IconContact },
   { id: 'theme', label: 'Theme settings', icon: IconTheme },
   { id: 'terminal', label: 'Terminal', icon: IconTerminal },

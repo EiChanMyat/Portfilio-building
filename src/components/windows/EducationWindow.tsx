@@ -1,10 +1,8 @@
-import {
-  awards,
-  certifications,
-  education,
-} from '../../data/portfolio';
+import { usePortfolio } from '../../hooks/usePortfolio';
 
 export function EducationWindow() {
+  const { awards, certifications, education } = usePortfolio();
+
   return (
     <div className="space-y-4 font-body text-base leading-relaxed">
       {education.map((item) => (

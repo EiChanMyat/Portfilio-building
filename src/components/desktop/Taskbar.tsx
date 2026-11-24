@@ -1,5 +1,5 @@
-import { personalInfo } from '../../data/portfolio';
 import { useDesktop } from '../../hooks/useDesktop';
+import { usePortfolio } from '../../hooks/usePortfolio';
 import { useClock, useSessionTimer } from '../../hooks/useClock';
 import { useIsMobile } from '../../hooks/useMediaQuery';
 import { playUiBlip, useUiSound } from '../../hooks/useUiSound';
@@ -21,6 +21,7 @@ export function Taskbar() {
   const { label: sessionLabel } = useSessionTimer(true);
   const isMobile = useIsMobile();
   const sound = useUiSound();
+  const { personalInfo } = usePortfolio();
 
   return (
     <footer className="relative z-[1000] flex h-14 items-center gap-1.5 border-t-[3px] border-[var(--dark-outline)] bg-[var(--taskbar-bg)] px-1.5">

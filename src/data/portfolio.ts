@@ -118,11 +118,11 @@ export interface Award {
 }
 
 export const personalInfo: PersonalInfo = {
-  name: '[YOUR NAME]',
+  name: 'Ei Chan Myat',
   role: 'FULL-STACK SOFTWARE ENGINEER',
   shortRole: 'Software Engineer',
-  osName: '[YOUR NAME] OS',
-  greeting: "Hello, I'm [YOUR NAME]",
+  osName: 'Ei Chan Myat OS',
+  greeting: "Hello, I'm Ei Chan Myat",
   introduction:
     "I'm a software engineer who enjoys turning ideas into reliable, accessible, and user-friendly applications. I work across frontend and backend development, with a focus on clean code, thoughtful interfaces, and practical problem-solving.",
   specialization: 'Building secure, reliable, and user-friendly applications.',
@@ -153,7 +153,7 @@ export const personalInfo: PersonalInfo = {
 
 export const socialLinks: SocialLinks = {
   email: '[YOUR EMAIL]',
-  github: '[YOUR GITHUB URL]',
+  github: 'https://github.com/EiChanMyat',
   linkedin: '[YOUR LINKEDIN URL]',
 };
 
@@ -370,6 +370,23 @@ export const experience: ExperienceItem[] = [
   },
 ];
 
+export const volunteer: ExperienceItem[] = [
+  {
+    id: 'vol-1',
+    category: 'volunteer',
+    position: '[VOLUNTEER ROLE]',
+    organization: '[ORGANIZATION OR COMMUNITY]',
+    dateRange: '[START – END]',
+    location: '[CITY, COUNTRY]',
+    bullets: [
+      '[What you helped with]',
+      '[Who you worked with]',
+      '[A result, event, or skill you practiced]',
+    ],
+    technologies: ['[Skill or tool]'],
+  },
+];
+
 export const education: EducationItem[] = [
   {
     id: 'edu-1',
@@ -410,9 +427,9 @@ export const resume = {
 export const contactFormEndpoint = '';
 
 export const siteMeta = {
-  title: '[YOUR NAME] | Software Engineer',
+  title: 'Ei Chan Myat | Software Engineer',
   description:
-    'Portfolio of [YOUR NAME], a software engineer building reliable, accessible, and user-friendly applications.',
+    'Portfolio of Ei Chan Myat, a software engineer building reliable, accessible, and user-friendly applications.',
   canonical: 'https://your-domain.example/',
 };
 

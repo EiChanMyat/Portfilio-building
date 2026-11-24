@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { DesktopProvider } from './context/DesktopContext';
+import { PortfolioProvider } from './context/PortfolioContext';
 import { BootScreen } from './components/desktop/BootScreen';
 import { Desktop } from './components/desktop/Desktop';
 import { usePrefersReducedMotion } from './hooks/useMediaQuery';
@@ -33,14 +34,16 @@ function AppShell() {
     setBooted(false);
   }, []);
 
-  if (!booted && !reducedMotion) {
-    return <BootScreen onSkip={skip} />;
-  }
-
   return (
-    <DesktopProvider restartIntro={restartIntro}>
-      <Desktop />
-    </DesktopProvider>
+    <PortfolioProvider>
+      {!booted && !reducedMotion ? (
+        <BootScreen onSkip={skip} />
+      ) : (
+        <DesktopProvider restartIntro={restartIntro}>
+          <Desktop />
+        </DesktopProvider>
+      )}
+    </PortfolioProvider>
   );
 }
 

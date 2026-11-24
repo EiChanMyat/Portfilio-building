@@ -1,8 +1,9 @@
-import { resume } from '../../data/portfolio';
 import { useResumeExists } from '../../hooks/useResumeExists';
+import { usePortfolio } from '../../hooks/usePortfolio';
 import { IconResume } from '../ui/PixelIcons';
 
 export function ResumeWindow() {
+  const { resume } = usePortfolio();
   const exists = useResumeExists(resume.path);
 
   return (

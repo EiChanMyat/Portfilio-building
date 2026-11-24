@@ -1,15 +1,16 @@
-import { personalInfo } from '../../data/portfolio';
+import { usePortfolio } from '../../hooks/usePortfolio';
 import { useDesktop } from '../../hooks/useDesktop';
-import { PixelAvatar } from '../ui/PixelAvatar';
+import { ProfilePhoto } from '../ui/ProfilePhoto';
 
 export function WelcomeWindow() {
   const { openWindow } = useDesktop();
+  const { personalInfo } = usePortfolio();
 
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-start">
         <div className="pixel-border shrink-0">
-          <PixelAvatar size={112} />
+          <ProfilePhoto size={112} />
         </div>
         <div className="min-w-0 text-center sm:text-left">
           <p className="font-display text-2xl leading-tight text-[var(--dark-text)]">

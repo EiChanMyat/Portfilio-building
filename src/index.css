@@ -247,6 +247,35 @@ select {
   color: var(--white-highlight);
 }
 
+.copy-chip {
+  width: 26px;
+  height: 26px;
+  min-height: 26px;
+  min-width: 26px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--dark-text);
+  background: var(--window-yellow);
+  border: 2px solid var(--dark-outline);
+  border-radius: 1px;
+  box-shadow:
+    inset 1px 1px 0 var(--white-highlight),
+    1px 1px 0 var(--dark-outline);
+  cursor: pointer;
+}
+
+.copy-chip:hover:not(:disabled) {
+  background: var(--peach);
+}
+
+.copy-chip:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 @media (max-width: 767px) {
   .retro-icon-btn {
     width: 44px;

@@ -1,11 +1,8 @@
 import { useState, type FormEvent } from 'react';
-import {
-  contactFormEndpoint,
-  isUsableEmail,
-  personalInfo,
-  socialLinks,
-} from '../../data/portfolio';
+import { isPlaceholder, isUsableEmail, isUsableHttpUrl } from '../../data/portfolio';
 import { useDesktop } from '../../hooks/useDesktop';
+import { usePortfolio } from '../../hooks/usePortfolio';
+import { IconCopy } from './PixelIcons';
 
 interface FormState {
   name: string;
@@ -18,6 +15,7 @@ const empty: FormState = { name: '', email: '', subject: '', message: '' };
 
 export function ContactForm() {
   const { notify } = useDesktop();
+  const { contactFormEndpoint, personalInfo, socialLinks } = usePortfolio();
   const [values, setValues] = useState<FormState>(empty);
   const [errors, setErrors] = useState<Partial<FormState>>({});
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -67,7 +65,7 @@ export function ContactForm() {
       setStatus('error');
       notify({
         title: 'Email missing',
-        message: 'Add your email in src/data/portfolio.ts to enable mailto.',
+        message: 'Set your email in Edit → Contact to enable mailto.',
         tone: 'error',
       });
       return;
@@ -84,25 +82,25 @@ export function ContactForm() {
     });
   };
 
-  const copyEmail = async () => {
-    if (!isUsableEmail(socialLinks.email)) {
+  const copyValue = async (label: string, value: string, usable: boolean) => {
+    if (!usable) {
       notify({
-        title: 'Email missing',
-        message: 'Replace [YOUR EMAIL] in src/data/portfolio.ts first.',
+        title: `${label} not set`,
+        message: `Set your ${label.toLowerCase()} in Edit first.`,
         tone: 'error',
       });
       return;
     }
     try {
-      await navigator.clipboard.writeText(socialLinks.email);
-      notify({ title: 'Copied', message: 'Email address copied to clipboard.', tone: 'success' });
+      await navigator.clipboard.writeText(value);
+      notify({ title: 'Copied', message: `${label} copied to clipboard.`, tone: 'success' });
     } catch {
-      notify({ title: 'Copy failed', message: 'Select and copy the email manually.', tone: 'error' });
+      notify({ title: 'Copy failed', message: `Select and copy the ${label.toLowerCase()} manually.`, tone: 'error' });
     }
   };
 
   return (
-    <div className="grid gap-4 md:grid-cols-[1fr_180px]">
+    <div className="grid gap-4 md:grid-cols-[1fr_210px]">
       <form className="space-y-3" onSubmit={onSubmit} noValidate>
         <div>
           <label className="font-display text-sm" htmlFor="contact-name">
@@ -177,31 +175,65 @@ export function ContactForm() {
         )}
       </form>
 
-      <aside className="space-y-2 font-body text-sm">
-        <p>
-          <span className="font-display">Email</span>
-          <br />
-          {socialLinks.email}
-        </p>
-        <p>
-          <span className="font-display">GitHub</span>
-          <br />
-          {socialLinks.github}
-        </p>
-        <p>
-          <span className="font-display">LinkedIn</span>
-          <br />
-          {socialLinks.linkedin}
-        </p>
-        <p>
-          <span className="font-display">Location</span>
-          <br />
-          {personalInfo.location}
-        </p>
-        <button type="button" className="retro-btn w-full" onClick={() => void copyEmail()}>
-          Copy Email
-        </button>
+      <aside className="space-y-3 font-body text-sm">
+        <CopyRow
+          label="Email"
+          value={socialLinks.email}
+          usable={isUsableEmail(socialLinks.email)}
+          onCopy={() => void copyValue('Email', socialLinks.email, isUsableEmail(socialLinks.email))}
+        />
+        <CopyRow
+          label="GitHub"
+          value={socialLinks.github}
+          usable={isUsableHttpUrl(socialLinks.github)}
+          onCopy={() => void copyValue('GitHub', socialLinks.github, isUsableHttpUrl(socialLinks.github))}
+        />
+        <CopyRow
+          label="LinkedIn"
+          value={socialLinks.linkedin}
+          usable={isUsableHttpUrl(socialLinks.linkedin)}
+          onCopy={() => void copyValue('LinkedIn', socialLinks.linkedin, isUsableHttpUrl(socialLinks.linkedin))}
+        />
+        <CopyRow
+          label="Location"
+          value={personalInfo.location}
+          usable={!isPlaceholder(personalInfo.location)}
+          onCopy={() =>
+            void copyValue('Location', personalInfo.location, !isPlaceholder(personalInfo.location))
+          }
+        />
       </aside>
+    </div>
+  );
+}
+
+function CopyRow({
+  label,
+  value,
+  usable,
+  onCopy,
+}: {
+  label: string;
+  value: string;
+  usable: boolean;
+  onCopy: () => void;
+}) {
+  return (
+    <div>
+      <div className="flex items-center justify-between gap-2">
+        <span className="font-display">{label}</span>
+        <button
+          type="button"
+          className="copy-chip"
+          aria-label={`Copy ${label}`}
+          title={usable ? `Copy ${label}` : `${label} is not set yet`}
+          disabled={!usable}
+          onClick={onCopy}
+        >
+          <IconCopy size={14} />
+        </button>
+      </div>
+      <p className="mt-0.5 break-all">{value}</p>
     </div>
   );
 }

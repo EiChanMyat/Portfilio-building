@@ -1,6 +1,8 @@
-import { personalInfo } from '../../data/portfolio';
+import { usePortfolio } from '../../hooks/usePortfolio';
 
 export function AboutWindow() {
+  const { personalInfo } = usePortfolio();
+
   return (
     <div className="grid gap-4 lg:grid-cols-[1fr_210px]">
       <div className="space-y-4 font-body text-base leading-relaxed">

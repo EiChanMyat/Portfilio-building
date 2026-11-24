@@ -6,9 +6,11 @@ export const WINDOW_IDS = [
   'experience',
   'education',
   'resume',
+  'volunteer',
   'contact',
   'terminal',
   'theme',
+  'editor',
 ] as const;
 
 export type WindowId = (typeof WINDOW_IDS)[number];
@@ -94,6 +96,11 @@ export const WINDOW_CONFIG: WindowConfig[] = [
     defaultBounds: { x: 200, y: 80, width: 440, height: 400 },
   },
   {
+    id: 'volunteer',
+    title: 'volunteer.log',
+    defaultBounds: { x: 176, y: 52, width: 540, height: 480 },
+  },
+  {
     id: 'contact',
     title: 'send_message.exe',
     defaultBounds: { x: 170, y: 48, width: 540, height: 540 },
@@ -107,5 +114,10 @@ export const WINDOW_CONFIG: WindowConfig[] = [
     id: 'theme',
     title: 'display.cpl',
     defaultBounds: { x: 240, y: 120, width: 440, height: 340 },
+  },
+  {
+    id: 'editor',
+    title: 'content_editor.exe',
+    defaultBounds: { x: 120, y: 36, width: 720, height: 560 },
   },
 ];
