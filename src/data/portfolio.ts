@@ -127,7 +127,7 @@ export const personalInfo: PersonalInfo = {
   introduction:
     
     "I'm a Software Engineering student at the University of Information Technology in Yangon. I love turning ideas into useful applications, from full-stack web apps to computer-vision projects.",
-  specialization: 'Full-stack web apps and computer vision.',
+  specialization: 'Full-stack web development.',
   currentFocus:
     
     'Sharpening my TypeScript, Next.js and Python skills, and studying Japanese for JLPT N3.',
