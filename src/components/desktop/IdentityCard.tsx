@@ -13,7 +13,7 @@ export function IdentityCard() {
           <p className="mt-1 font-display text-sm text-[var(--muted-text)]">{personalInfo.shortRole}</p>
         </div>
       </div>
-      <p className="mt-2 font-body text-sm leading-relaxed text-[var(--dark-text)]">
+      <p className="mt-2 whitespace-pre-line font-body text-sm leading-relaxed text-[var(--dark-text)]">
         {personalInfo.specialization}
       </p>
       <p className="mt-3 flex items-center gap-2 font-body text-sm">
