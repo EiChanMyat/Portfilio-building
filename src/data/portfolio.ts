@@ -125,17 +125,17 @@ export const personalInfo: PersonalInfo = {
   osName: 'Ei Chan Myat OS',
   greeting: "Hello, I'm Ei Chan Myat",
   introduction:
-    "I'm a Software Engineering student at UIT in Yangon who enjoys turning ideas into useful applications. I build full-stack web apps and computer-vision projects, and I'm studying Japanese to start my engineering career in Japan.",
+    "I'm a Software Engineering student at UIT in Yangon who enjoys turning ideas into useful applications. I build full-stack web apps and computer-vision projects, and I'm open to opportunities in Myanmar and Japan. I'm also studying Japanese.",
   specialization: 'Full-stack web apps and computer-vision projects.',
   currentFocus:
     'Studying for JLPT N3 while getting stronger in TypeScript, Next.js and Python.',
   location: 'Yangon, Myanmar',
-  workPreference: 'Looking for an internship in Japan',
-  availability: 'Looking for an internship in Japan',
+  workPreference: 'Open to Myanmar and Japan',
+  availability: 'Open to internships in Myanmar and Japan',
   currentlyCoding: 'Currently coding',
   terminalStatus: '> Building apps and studying Japanese_',
   bio:
-    "I study Software Engineering at the University of Information Technology (UIT) in Yangon, and I have completed four of my five years. I started with Java and PHP, then moved on to full-stack web development and computer vision. I enjoy making ideas come true by building applications, like Toma, my habit-tracking web app. My interest in Japan began with Japanese movies and online content. What I admire most is how people there work: their discipline, punctuality, respect for others and teamwork. That is why I started studying Japanese. I passed JLPT N4 and I am now studying for N3. I am honest, hardworking and eager to learn, and I want to build a long-term engineering career in Japan.",
+    "I study Software Engineering at the University of Information Technology (UIT) in Yangon, and I have completed four of my five years. I started with Java and PHP, then moved on to full-stack web development and computer vision. I enjoy making ideas come true by building applications, like Toma, my habit-tracking web app. My interest in Japan began with Japanese movies and online content. What I admire most is how people there work: their discipline, punctuality, respect for others and teamwork. That is why I started studying Japanese. I passed JLPT N4 and I am now studying for N3. I am honest, hardworking and eager to learn, and I want to build a long-term engineering career, in Myanmar or in Japan. I am happy to work with teams in either country.",
   interests: [
     'Full-stack web development',
     'Computer vision',
@@ -149,13 +149,13 @@ export const personalInfo: PersonalInfo = {
     'Python and APIs',
   ],
   careerObjective:
-    'I want to start as a developer at a company in Japan, learn its systems and way of working, and take on more responsibility over time, such as designing and improving larger parts of a system. In the long term I want to be an engineer my team and customers can trust.',
+    'I want to start as a developer at a company in Myanmar or Japan, learn its systems and way of working, and take on more responsibility over time, such as designing and improving larger parts of a system. In the long term I want to be an engineer my team and customers can trust.',
   technologiesSummary: ['Java', 'PHP', 'JavaScript', 'React', 'MySQL', 'MongoDB', 'JLPT N4'],
   stats: {
     projectsCompleted: '5',
     technologiesUsed: '15+',
     yearsBuilding: '4',
-    availability: 'Open to internships in Japan',
+    availability: 'Open to internships in Myanmar and Japan',
   },
 };
 
@@ -484,7 +484,7 @@ export const contactFormEndpoint = '';
 export const siteMeta = {
   title: 'Ei Chan Myat | Software Engineering Student',
   description:
-    'Portfolio of Ei Chan Myat, a Software Engineering student in Yangon who builds full-stack web apps and computer-vision projects and is aiming for an engineering career in Japan.',
+    'Portfolio of Ei Chan Myat, a Software Engineering student in Yangon who builds full-stack web apps and computer-vision projects and is open to opportunities in Myanmar and Japan.',
   canonical: 'https://portfilio-building.vercel.app/',
 };
 
